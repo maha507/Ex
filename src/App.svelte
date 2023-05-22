@@ -6,28 +6,44 @@
       {
         question: 'What is the capital of Thamilnadu?',
         options: ['Chennai', 'Bangalore', 'Hyderabad', 'Pune'],
-        answer: 'Chennai'
+        answer: 'Chennai',
+        score: 0
       },
       {
         question: 'What is the capital of Telangana?',
         options: ['Chennai', 'Bangalore', 'Hyderabad', 'Pune'],
-        answer: 'Hyderabad'
+        answer: 'Hyderabad',
+        score: 0
       },
       {
         question: 'What is the capital of Karnataka?',
         options: ['Chennai', 'Bangalore', 'Hyderabad', 'Pune'],
-        answer: 'Bangalore'
+        answer: 'Bangalore',
+        score: 0
+      },
+      {
+        question: 'What is the capital of Maharashtra?',
+        options: ['Chennai', 'Bangalore', 'Hyderabad', 'Mumbai'],
+        answer: 'Mumbai',
+        score: 0
+      },
+      {
+        question: 'What is the capital of Odisha?',
+        options: ['Bhuvaneswar', 'Bangalore', 'Hyderabad', 'Mumbai'],
+        answer: 'Bhuvaneswar',
+        score: 0
       }
     ];
   
     let selectedOptions = new Array(quizData.length).fill('');
-    let scores = new Array(quizData.length).fill(0);
+    let totalScore = 0;
     let quizCompleted = false;
   
     function checkAnswer() {
-      selectedOptions.forEach((selectedOption, index) => {
-        if (selectedOption === quizData[index].answer) {
-          scores[index] = 1;
+      quizData.forEach((question, index) => {
+        if (selectedOptions[index] === question.answer) {
+          question.score = 1;
+          totalScore++;
         }
       });
   
@@ -62,14 +78,16 @@
             </li>
           {/each}
         </ul>
-        <p>Score: {scores[index]}/{scores.length}</p>
       {/each}
   
       <button on:click={checkAnswer}>Finish</button>
     {:else}
       <h1>Quiz Completed!</h1>
-      <p>Your total score: {scores.reduce((sum, value) => sum + value, 0)}/{scores.length}</p>
+      <p>Your total score: {totalScore}/{quizData.length}</p>
     {/if}
   </main>
   
+  <style>
+    /* Styles omitted for brevity */
+  </style>
   
