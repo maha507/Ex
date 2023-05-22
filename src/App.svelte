@@ -1,6 +1,6 @@
 <script>
     import { onMount } from 'svelte';
-    import 'bootstrap/dist/css/bootstrap.min.css';
+  
     // Quiz data
     const quizData = [
       {
@@ -17,21 +17,6 @@
         question: 'What is the capital of Karnataka?',
         options: ['Chennai', 'Bangalore', 'Hyderabad', 'Pune'],
         answer: 'Bangalore'
-      },
-      {
-        question: 'What is the capital of Maharashtra',
-        options: ['Chennai', 'Bangalore', 'Hyderabad', 'Mumbai'],
-        answer: 'Mumbai'
-      },
-      {
-        question: 'What is the capital of Gujarath',
-        options: ['Gandhi Nagar', 'Bangalore', 'Hyderabad', 'Pune'],
-        answer: 'Gandhi Nagar'
-      },
-      {
-        question: 'What is the capital of Odisha?',
-        options: ['Chennai', 'Bhuvaneswar', 'Hyderabad', 'Pune'],
-        answer: 'Bhuvaneswar'
       }
     ];
   
@@ -77,7 +62,7 @@
             </li>
           {/each}
         </ul>
-
+        <p>Score: {scores[index]}/{scores.length}</p>
       {/each}
   
       <button on:click={checkAnswer}>Finish</button>
@@ -86,6 +71,5 @@
       <p>Your total score: {scores.reduce((sum, value) => sum + value, 0)}/{scores.length}</p>
     {/if}
   </main>
-  
   
   
