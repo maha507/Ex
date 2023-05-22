@@ -18,6 +18,21 @@
         options: ['Chennai', 'Bangalore', 'Hyderabad', 'Pune'],
         answer: 'Bangalore'
       }
+      {
+        question: 'What is the capital of Maharashtra',
+        options: ['Chennai', 'Bangalore', 'Hyderabad', 'Mumbai'],
+        answer: 'Mumbai'
+      },
+      {
+        question: 'What is the capital of Gujarath',
+        options: ['Gandhi Nagar', 'Bangalore', 'Hyderabad', 'Pune'],
+        answer: 'Gandhi Nagar'
+      },
+      {
+        question: 'What is the capital of Odisha?',
+        options: ['Chennai', 'Bhuvaneswar', 'Hyderabad', 'Pune'],
+        answer: 'Bhuvaneswar'
+      }
     ];
   
     let selectedOptions = new Array(quizData.length).fill('');
