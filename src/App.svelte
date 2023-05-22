@@ -1,31 +1,30 @@
 <script>
-  
     // Quiz data
     const quizData = [
       {
         question: 'What is the capital of Thamilnadu?',
-        options: ['Chennai', 'Bangalore', 'Hyderabad', 'Pune'],
-        answer: 'Chennai'
+        options: ['A. Chennai', 'B. Bangalore', 'C. Hyderabad', 'D. Pune'],
+        answer: 'A. Chennai'
       },
       {
         question: 'What is the capital of Telangana?',
-        options: ['Chennai', 'Bangalore', 'Hyderabad', 'Pune'],
-        answer: 'Hyderabad'
+        options: ['A. Chennai', 'B. Bangalore', 'C. Hyderabad', 'D. Pune'],
+        answer: 'C. Hyderabad'
       },
       {
         question: 'What is the capital of Karnataka?',
-        options: ['Chennai', 'Bangalore', 'Hyderabad', 'Pune'],
-        answer: 'Bangalore'
+        options: ['A. Chennai', 'B. Bangalore', 'C. Hyderabad', 'D. Pune'],
+        answer: 'B. Bangalore'
       },
       {
         question: 'What is the capital of Maharashtra?',
-        options: ['Chennai', 'Bangalore', 'Hyderabad', 'Mumbai'],
-        answer: 'Mumbai'
+        options: ['A. Chennai', 'B. Bangalore', 'C. Hyderabad', 'D. Mumbai'],
+        answer: 'D. Mumbai'
       },
       {
         question: 'What is the capital of Odisha?',
-        options: ['Chennai', 'Bhuvaneswar', 'Hyderabad', 'Pune'],
-        answer: 'Bhuvaneswar'
+        options: ['A. Chennai', 'B. Bhuvaneswar', 'C. Hyderabad', 'D. Pune'],
+        answer: 'B. Bhuvaneswar'
       }
     ];
   
@@ -34,6 +33,12 @@
     let quizCompleted = false;
   
     function checkAnswer() {
+      // Check if all questions have been answered
+      if (selectedOptions.includes('')) {
+        alert('Please answer all the questions before finishing the quiz.');
+        return;
+      }
+  
       selectedOptions.forEach((selectedOption, index) => {
         if (selectedOption === quizData[index].answer) {
           scores[index] = 1;
@@ -42,8 +47,6 @@
   
       quizCompleted = true;
     }
-  
-    
   </script>
   
   <main>
@@ -77,5 +80,4 @@
       <p>Your total score: {scores.reduce((sum, value) => sum + value, 0)}/{scores.length}</p>
     {/if}
   </main>
-  
   
