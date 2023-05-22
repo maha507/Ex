@@ -17,7 +17,7 @@
         question: 'What is the capital of Karnataka?',
         options: ['Chennai', 'Bangalore', 'Hyderabad', 'Pune'],
         answer: 'Bangalore'
-      }
+      },
       {
         question: 'What is the capital of Maharashtra',
         options: ['Chennai', 'Bangalore', 'Hyderabad', 'Mumbai'],
