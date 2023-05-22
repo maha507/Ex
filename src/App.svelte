@@ -1,59 +1,49 @@
 <script>
-    import { onMount } from 'svelte';
   
     // Quiz data
     const quizData = [
       {
         question: 'What is the capital of Thamilnadu?',
         options: ['Chennai', 'Bangalore', 'Hyderabad', 'Pune'],
-        answer: 'Chennai',
-        score: 0
+        answer: 'Chennai'
       },
       {
         question: 'What is the capital of Telangana?',
         options: ['Chennai', 'Bangalore', 'Hyderabad', 'Pune'],
-        answer: 'Hyderabad',
-        score: 0
+        answer: 'Hyderabad'
       },
       {
         question: 'What is the capital of Karnataka?',
         options: ['Chennai', 'Bangalore', 'Hyderabad', 'Pune'],
-        answer: 'Bangalore',
-        score: 0
+        answer: 'Bangalore'
       },
       {
         question: 'What is the capital of Maharashtra?',
         options: ['Chennai', 'Bangalore', 'Hyderabad', 'Mumbai'],
-        answer: 'Mumbai',
-        score: 0
+        answer: 'Mumbai'
       },
       {
         question: 'What is the capital of Odisha?',
-        options: ['Bhuvaneswar', 'Bangalore', 'Hyderabad', 'Mumbai'],
-        answer: 'Bhuvaneswar',
-        score: 0
+        options: ['Chennai', 'Bhuvaneswar', 'Hyderabad', 'Pune'],
+        answer: 'Bhuvaneswar'
       }
     ];
   
     let selectedOptions = new Array(quizData.length).fill('');
-    let totalScore = 0;
+    let scores = new Array(quizData.length).fill(0);
     let quizCompleted = false;
   
     function checkAnswer() {
-      quizData.forEach((question, index) => {
-        if (selectedOptions[index] === question.answer) {
-          question.score = 1;
-          totalScore++;
+      selectedOptions.forEach((selectedOption, index) => {
+        if (selectedOption === quizData[index].answer) {
+          scores[index] = 1;
         }
       });
   
       quizCompleted = true;
     }
   
-    onMount(() => {
-      // Shuffle the quiz questions randomly
-      quizData.sort(() => Math.random() - 0.5);
-    });
+    
   </script>
   
   <main>
@@ -78,16 +68,14 @@
             </li>
           {/each}
         </ul>
+        <p>Score: {scores[index]}/{scores.length}</p>
       {/each}
   
       <button on:click={checkAnswer}>Finish</button>
     {:else}
       <h1>Quiz Completed!</h1>
-      <p>Your total score: {totalScore}/{quizData.length}</p>
+      <p>Your total score: {scores.reduce((sum, value) => sum + value, 0)}/{scores.length}</p>
     {/if}
   </main>
   
-  <style>
-    /* Styles omitted for brevity */
-  </style>
   
